@@ -46,10 +46,11 @@ class Contents extends Component
 class App extends Component{
   render(){
     return(
-      <div className = "App">
-          <Container textAlign='center'>WEB</Container>
-          <Container textAlign='justified'>
-            <b><Subject></Subject></b>
+      <div className = "App">         
+          <Container textAlign='center'>
+              <Subject></Subject>
+          </Container>          
+          <Container textAlign='justified'>           
             <Divider/>
             <p><TOC></TOC></p>
             <p><Contents></Contents></p>

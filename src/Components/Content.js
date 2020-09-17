@@ -4,6 +4,7 @@ import {Header,Segment } from 'semantic-ui-react'
 class Contents extends Component
 {
   render(){
+    console.log("Content render");
     return (
       <article>  
             <Header as='h2' attached='top'>

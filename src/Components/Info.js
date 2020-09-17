@@ -5,6 +5,7 @@ import { List } from 'semantic-ui-react'
 class Info extends Component
 {
     render(){
+        console.log("Info render");
         var lists = [];
         var data = this.props.p_item;
         var i = 0;

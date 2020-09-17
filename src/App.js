@@ -3,6 +3,8 @@ import TOC from './Components/TOC';
 import Subject from './Components/Subject';
 import Contents from './Components/Content';
 import Info from './Components/Info';
+import Unreal from './Components/Unreal';
+
 import './App.css';
 //import ContainerExample from './Components/ContainerExampleAlignment'
 
@@ -12,8 +14,9 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state ={
+      mode:"read",
       subject:{title:'WEB',sub:'World Wide Web'},
-      
+      welcome:{title:'Welcome',desc:"Hello, made by React"},
       contents:[
         {id:1 , title : 'HTML',desc :"HTML is for information"},
         {id:2 , title : 'CSS',desc :"CSS is for information"},
@@ -24,10 +27,27 @@ class App extends Component{
         {id:1, name : 'Apples', price : '1200'},
         {id:2, name : 'Pears', price : '2700'},
         {id:3, name : 'Oranges', price : '300'}
+      ],
+
+      s_Unreal:[
+        {id:1, title : 'Actor', desc:"Actor is ...."},
+        {id:2, title : 'BluePrint', desc:"BluePrint is ...."}
       ]
     }
   }
   render(){
+    console.log("App render");
+    var _title,_desc = null;
+
+    if(this.state.mode === "welcome"){
+      _title = this.state.welcome.title;
+      _desc = this.state.welcome.desc;
+    }else if(this.state.mode === "read"){
+      _title = this.state.contents[0].title;
+      _desc = this.state.contents[0].desc;
+    }
+
+
     return(
       <div className = "App">         
           
@@ -37,13 +57,15 @@ class App extends Component{
 
           <Container textAlign='justified'>   
           <Divider/>                  
-            <p><TOC data ={this.state.contents}></TOC></p>
-            <p><Contents title ="HTML" desc="HTML is HyerperText Markup Language."></Contents></p>           
+           <TOC data ={this.state.contents}></TOC>
+            <Contents title ={_title} desc={_desc}></Contents>
           </Container> 
           <Container textAlign='justified'> 
           <Divider/>
-            <p><Info p_item={this.state.s_items}></Info></p>
+            <Info p_item={this.state.s_items}></Info>
           </Container>
+          <Divider/>
+          <Unreal p_Unreal={this.state.s_Unreal}></Unreal>
       </div>
     );    
   }

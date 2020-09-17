@@ -6,10 +6,11 @@ import { Container} from 'semantic-ui-react'
 class Subject extends Component
 {
   render(){
+    console.log("Subject render");
     return (
       <header>
             <Container textAlign='center'>
-               <h1>{this.props.title}</h1>
+               <h1><a href="/">{this.props.title}</a></h1>
                <h3>{this.props.sub}</h3>                
             </Container>           
       </header>
